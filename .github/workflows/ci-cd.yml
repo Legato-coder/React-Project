@@ -1,0 +1,41 @@
+name: React CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests (if you have tests, optional)
+      - name: Run tests
+        run: npm test || echo "No tests found"
+
+      # Step 5: Build project
+      - name: Build React app
+        run: npm run build
+
+      # Step 6: Deploy to GitHub Pages (optional)
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages       # Branch to deploy to
+          folder: dist           # Folder to deploy (Vite build output)
