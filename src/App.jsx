@@ -7,7 +7,8 @@ function App() {
   const employees = [
     { name: "Santhosh", city: "Hyderabad", department: "IT", car: "Scorpio-N" },
     { name: "Rohit", city: "Bangalore", department: "CSE", car: "Swift" },
-    { name: "Kajal", city: "Chennai", department: "IT", car: "Alto" }
+    { name: "Suresh", city: "Cuttak", department: "Biotechnology", car: "Tata Alto" },
+    { name: "Mohan", city: "Palasa", department: "AI", car: "Tata Safari" } // added
   ];
 
   return (
